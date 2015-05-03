@@ -69,6 +69,7 @@ public class RegistroEstudiantes {
         eNombre.addContent(String.valueOf(estudiante.getNombre()));
         eAñoIngreso.addContent(String.valueOf(estudiante.getAñoIngreso()));
         eCedula.addContent(String.valueOf(estudiante.getCedula()));
+        
         eEstudiante.setAttribute(aIdentificador);
         eEstudiante.addContent(eNombre);
         eEstudiante.addContent(eAñoIngreso);

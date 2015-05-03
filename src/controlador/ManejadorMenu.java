@@ -52,6 +52,13 @@ public class ManejadorMenu extends Controlador {
                 registroCursos = RegistroCursos.abrirDocumento();
             }
             
+            if(RegistroMatricula.analizarDirectorio() == false){
+                RegistroMatricula.crearDocumento();
+                registroMatricula = RegistroMatricula.abrirDocumento();
+            }else{
+                registroMatricula = RegistroMatricula.abrirDocumento();
+            }
+            
         } catch (IOException | JDOMException ex) {
             Logger.getLogger(ManejadorMenu.class.getName()).log(Level.SEVERE, null, ex);
         }

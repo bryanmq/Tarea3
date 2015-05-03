@@ -6,6 +6,9 @@
 package controlador;
 
 import java.awt.event.ActionEvent;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import modelo.Matricula;
 import modelo.RegistroCursos;
 import modelo.RegistroEstudiantes;
@@ -36,13 +39,17 @@ public class ManejadorMatricula extends Controlador {
         if (e.getActionCommand().equals(PanelBotonesAccion.BOTON_TYPE_ACEPTAR)) {
             if (gUIMatricula.getDatosEstudiantes()[0] != null) {
                 if (gUIMatricula.getDatosCurso()[0] != null) {
-                    Matricula matricula = new Matricula(gUIMatricula.getDatosEstudiantes(), "", gUIMatricula.getDatosCurso());
-                    registroMatricula.setMatricula(matricula);
-                    gUIMatricula.showMessage("Matricula Realizada exitosamente");
-                    gUIMatricula.dispose();
-                    gUIMatricula = new GUIMatricula();
-                    gUIMatricula.init(registroMatricula, registroEstudiantes, registroCursos);
-                    gUIMatricula.setVisible(true);
+                    try {
+                        Matricula matricula = new Matricula(gUIMatricula.getDatosEstudiantes(), gUIMatricula.getDatosFecha(), gUIMatricula.getDatosCurso());
+                        registroMatricula.setMatricula(matricula);
+                        gUIMatricula.showMessage("Matricula Realizada exitosamente");
+                        gUIMatricula.dispose();
+                        gUIMatricula = new GUIMatricula();
+                        gUIMatricula.init(registroMatricula, registroEstudiantes, registroCursos);
+                        gUIMatricula.setVisible(true);
+                    } catch (IOException ex) {
+                        Logger.getLogger(ManejadorMatricula.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 
                 } else {
                     gUIMatricula.showMessage("Debe seleccionar al menos un curso para realizar la matricula");

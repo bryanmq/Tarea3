@@ -33,7 +33,7 @@ public class Matricula {
         String informacion="";
         for(int i=0; i<arrayEstudiantes.length; i++){
             if(arrayEstudiantes[i]!=null){
-                informacion+="           -"+arrayEstudiantes[i]+"\n";
+                informacion+="- "+arrayEstudiantes[i]+"\n";
             }
         }
         return informacion;

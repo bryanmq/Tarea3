@@ -32,18 +32,6 @@ public class RegistroMatricula {
         arrayMatricula = new ArrayList<Matricula>();
     }
 
-    public void setMatricula(Matricula matricula) {
-        arrayMatricula.add(matricula);
-    }
-
-    public String getInformacionMatricula() {
-        String informacion = "";
-        for (Matricula matricula : arrayMatricula) {
-            informacion += matricula.getInfo() + "\n";
-        }
-        return informacion;
-    }
-
     private RegistroMatricula(String rutaDocumento, String nombreRaiz) throws IOException {
         this.rutaDocumento = rutaDocumento;
         this.raiz = new Element(nombreRaiz);
@@ -80,22 +68,22 @@ public class RegistroMatricula {
         return state;
     }
 
-    public void setMatricula(Estudiante estudiante) throws IOException {
-        Element eEstudiante = new Element("estudiante");
-        Attribute aIdentificador = new Attribute("identificador", estudiante.getIdentificador());
-        Element eNombre = new Element("nombre");
-        Element eAñoIngreso = new Element("añoIngreso");
-        Element eCedula = new Element("cedula");
+    public void setMatricula(Matricula matricula) throws IOException {
+        Element eMatricula = new Element("matricula");
 
-        eNombre.addContent(String.valueOf(estudiante.getNombre()));
-        eAñoIngreso.addContent(String.valueOf(estudiante.getAñoIngreso()));
-        eCedula.addContent(String.valueOf(estudiante.getCedula()));
-        eEstudiante.setAttribute(aIdentificador);
-        eEstudiante.addContent(eNombre);
-        eEstudiante.addContent(eAñoIngreso);
-        eEstudiante.addContent(eCedula);
+        Element eCurso = new Element("curso");
+        Element eFecha = new Element("fecha");
+        Element eEstudiantes = new Element("estudiantes");
 
-        raiz.addContent(eEstudiante);
+        eCurso.addContent(String.valueOf(matricula.getCurso()));
+        eFecha.addContent(String.valueOf(matricula.getFecha()));
+        eEstudiantes.addContent(String.valueOf("\n" + matricula.getEstudiantes()));
+
+        eMatricula.addContent(eCurso);
+        eMatricula.addContent(eEstudiantes);
+        eMatricula.addContent(eFecha);
+
+        raiz.addContent(eMatricula);
         guardarMatricula();
     }
 
@@ -104,24 +92,25 @@ public class RegistroMatricula {
         xMLOutputter.output(document, new PrintWriter(this.rutaDocumento));
     }
 
-
-    public Object buscarMatricula(String identificador, int index) {
+    public Element buscarMatricula(String curso, int index) {
         if (raiz != null) {
-            List<Element> elementosEstudiantes = (List<Element>) raiz.getChildren();
-            for (Element elemento : elementosEstudiantes) {
-                if (elemento.getAttributeValue("identificador").equalsIgnoreCase(identificador)) {
-                    if (index == 1) {
-                        return new Estudiante(elemento.getChildText("nombre"),
-                                Integer.parseInt(elemento.getChildText("añoIngreso")),
-                                elemento.getAttributeValue("identificador"),
-                                elemento.getChildText("cedula"));
-                    } else {
-                        return elemento;
-                    }
+            List<Element> elementosMatriculas = (List<Element>) raiz.getChildren();
+            for (Element elemento : elementosMatriculas) {
+                if (elemento.getChildText("curso").equalsIgnoreCase(curso)) {
+                    return elemento;
                 }
             }
         }
         return null;
+    }
+
+    public String getInformacionMatricula() {
+        String informacion = "";
+
+        for (Matricula matricula : arrayMatricula) {
+            informacion += matricula.getInfo() + "\n";
+        }
+        return informacion;
     }
 
 }
