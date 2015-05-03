@@ -12,11 +12,10 @@ import modelo.RegistroEstudiantes;
 import modelo.RegistroMatricula;
 import vista.GUIMatricula;
 import vista.PanelBotonesAccion;
-import vista.PanelMatricula;
 
 /**
  *
- * @author Bryan
+ * @author Bryan Marín Quesada
  */
 public class ManejadorMatricula extends Controlador {
 
