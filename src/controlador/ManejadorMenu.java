@@ -21,7 +21,7 @@ import vista.Menu;
 
 /**
  *
- * @author Bryan
+ * @author Bryan Marin Quesada
  */
 public class ManejadorMenu extends Controlador {
 
