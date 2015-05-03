@@ -126,4 +126,4 @@ public class ManejadorEstudiante extends Controlador {
         }
 
     }//fin metodo actionPerformed
-}//fin clase principal
+}//fin clase
