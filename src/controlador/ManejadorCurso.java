@@ -18,8 +18,9 @@ import vista.PanelCurso;
 import vista.Ventana;
 
 /**
+ * TAREA #3 UCR-Programación II-2015
  *
- * @author Bryan
+ * @author Bryan Marín Quesada(B23907)
  */
 public class ManejadorCurso extends Controlador {
 

@@ -6,13 +6,14 @@
 package modelo;
 
 /**
+ * TAREA #3 UCR-Programación II-2015
  *
- * @author Bryan
+ * @author Bryan Marín Quesada(B23907)
  */
-public class Curso{
+public class Curso {
 
     private String nombre, siglas, creditos;
-    private static String etiquetaAtributos[]={"Nombre","Siglas","Créditos"};
+    private static String etiquetaAtributos[] = {"Nombre", "Siglas", "Créditos"};
 
     public Curso(String nombre, String siglas, String creditos) {
         this.nombre = nombre;
@@ -20,55 +21,53 @@ public class Curso{
         this.creditos = creditos;
     }
 
-    public static int size(){
-            return etiquetaAtributos.length;
+    public static int size() {
+        return etiquetaAtributos.length;
     }
 
-    public static String[] getEtiquetaAtributos(){
-            return etiquetaAtributos;
+    public static String[] getEtiquetaAtributos() {
+        return etiquetaAtributos;
     }
 
-    public String getAtributos(int indice){
+    public String getAtributos(int indice) {
         switch (indice) {
             case 0:
-                    return getNombre();
+                return getNombre();
             case 1:
-                    return getSiglas();
+                return getSiglas();
             case 2:
-                    return getCreditos();
-            default: 
-                    return null;
+                return getCreditos();
+            default:
+                return null;
         }
     }
 
     public String getNombre() {
-            return nombre;
+        return nombre;
     }
 
     public void setNombre(String nombre) {
-            this.nombre = nombre;
+        this.nombre = nombre;
     }
 
     public String getSiglas() {
-            return siglas;
+        return siglas;
     }
 
     public void setSiglas(String siglas) {
-            this.siglas = siglas;
+        this.siglas = siglas;
     }
-    
+
     public String getCreditos() {
-            return creditos;
+        return creditos;
     }
 
     public void setCreditos(String creditos) {
-            this.creditos = creditos;
-    }
-   
-    public String getInfo(){
-        return "\nCurso: "+getNombre()+"\nSilgas: "+getSiglas()+"\nCréditos: "+getCreditos()+"\n";
+        this.creditos = creditos;
     }
 
-	
+    public String getInfo() {
+        return "\nCurso: " + getNombre() + "\nSilgas: " + getSiglas() + "\nCréditos: " + getCreditos() + "\n";
+    }
+
 }
-

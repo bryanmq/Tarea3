@@ -12,8 +12,9 @@ import modelo.RegistroMatricula;
 import modelo.RegistroCursos;
 
 /**
+ * TAREA #3 UCR-Programación II-2015
  *
- * @author Bryan
+ * @author Bryan Marín Quesada(B23907)
  */
 public class GUIMatricula extends Ventana {
 
@@ -44,27 +45,27 @@ public class GUIMatricula extends Ventana {
     }
 
     public void setDatosJComboBox() {
-        panelMatricula2.setValoresJComboBox(registroEstudiantes.getVectorEstudiantes());
+        panelMatricula1.setValoresJComboBox(registroEstudiantes.getVectorEstudiantes());
     }
 
     public void setDatosJTable() {
-        panelMatricula2.setValoresJTable(registroCursos.getMatrizCursos(), Curso.getEtiquetaAtributos());
+        panelMatricula1.setValoresJTable(registroCursos.getMatrizCursos(), Curso.getEtiquetaAtributos());
     }
 
     public void setRegistro() {
-        panelMatricula2.setRegistro(registroCursos, registroEstudiantes);
+        panelMatricula1.setRegistro(registroCursos, registroEstudiantes);
     }
 
     public String[] getDatosEstudiantes() {
-        return panelMatricula2.getVectorEstudiantes();
+        return panelMatricula1.getVectorEstudiantes();
     }
 
     public String[] getDatosCurso() {
-        return panelMatricula2.getdatosTabla();
+        return panelMatricula1.getdatosTabla();
     }
-    
-    public String getDatosFecha(){
-        return panelMatricula2.setAndGetFecha();
+
+    public String getDatosFecha() {
+        return panelMatricula1.setAndGetFecha();
     }
 
     /**
@@ -78,7 +79,7 @@ public class GUIMatricula extends Ventana {
 
         jPanel1 = new javax.swing.JPanel();
         panelBotonesAccion1 = new vista.PanelBotonesAccion();
-        panelMatricula2 = new vista.PanelMatricula();
+        panelMatricula1 = new vista.PanelMatricula();
 
         setTitle("eMatrícula UCR");
 
@@ -89,21 +90,20 @@ public class GUIMatricula extends Ventana {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(88, 88, 88)
+                .addComponent(panelMatricula1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(85, 85, 85)
                 .addComponent(panelBotonesAccion1, javax.swing.GroupLayout.PREFERRED_SIZE, 425, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(panelMatricula2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(panelMatricula2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(9, 9, 9)
-                .addComponent(panelBotonesAccion1, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addComponent(panelMatricula1, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(panelBotonesAccion1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -114,7 +114,7 @@ public class GUIMatricula extends Ventana {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -124,6 +124,6 @@ public class GUIMatricula extends Ventana {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel jPanel1;
     private vista.PanelBotonesAccion panelBotonesAccion1;
-    private vista.PanelMatricula panelMatricula2;
+    private vista.PanelMatricula panelMatricula1;
     // End of variables declaration//GEN-END:variables
 }

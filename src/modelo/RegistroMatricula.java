@@ -17,8 +17,9 @@ import org.jdom.input.SAXBuilder;
 import org.jdom.output.XMLOutputter;
 
 /**
+ * TAREA #3 UCR-Programación II-2015
  *
- * @author Bryan
+ * @author Bryan Marín Quesada(B23907)
  */
 public class RegistroMatricula {
 
@@ -28,7 +29,7 @@ public class RegistroMatricula {
     private Document document;
 
     public RegistroMatricula() {
-        arrayMatricula = new ArrayList<Matricula>();
+
     }
 
     private RegistroMatricula(String rutaDocumento, String nombreRaiz) throws IOException {
@@ -76,7 +77,7 @@ public class RegistroMatricula {
 
         eCurso.addContent(String.valueOf(matricula.getCurso()));
         eFecha.addContent(String.valueOf(matricula.getFecha()));
-        eEstudiantes.addContent(String.valueOf("\n" + matricula.getEstudiantes()));
+        eEstudiantes.addContent(String.valueOf(matricula.getEstudiantes()));
 
         eMatricula.addContent(eCurso);
         eMatricula.addContent(eEstudiantes);
@@ -91,25 +92,31 @@ public class RegistroMatricula {
         xMLOutputter.output(document, new PrintWriter(this.rutaDocumento));
     }
 
-    public Element buscarMatricula(String curso, int index) {
+    public void cargarMatrizTemporal() {
         if (raiz != null) {
             List<Element> elementosMatriculas = (List<Element>) raiz.getChildren();
+            arrayMatricula = new ArrayList<>();
             for (Element elemento : elementosMatriculas) {
-                if (elemento.getChildText("curso").equalsIgnoreCase(curso)) {
-                    return elemento;
-                }
+                Matricula matricula;
+                String estudiantes[] = new String[1];
+                String curso[] = new String[1];
+                curso[0] = elemento.getChildText("curso");
+                estudiantes[0] = elemento.getChildText("estudiantes");
+                matricula = new Matricula(estudiantes, elemento.getChildText("fecha"), curso);
+                arrayMatricula.add(matricula);
             }
         }
-        return null;
     }
 
-    public String getInformacionMatricula() {
-        String informacion = "";
-
-        for (Matricula matricula : arrayMatricula) {
-            informacion += matricula.getInfo() + "\n";
+    public String[][] getMatrizMatrícula() {
+        cargarMatrizTemporal();
+        String matriz[][] = new String[arrayMatricula.size()][Matricula.getConteoAtributos()];
+        for (int fila = 0; fila < matriz.length; fila++) {
+            for (int columna = 0; columna < matriz[fila].length; columna++) {
+                matriz[fila][columna] = arrayMatricula.get(fila).getAtributo(columna);
+            }
         }
-        return informacion;
+        return matriz;
     }
 
 }

@@ -18,8 +18,9 @@ import org.jdom.input.SAXBuilder;
 import org.jdom.output.XMLOutputter;
 
 /**
+ * TAREA #3 UCR-Programación II-2015
  *
- * @author Bryan
+ * @author Bryan Marín Quesada(B23907)
  */
 public class RegistroCursos {
 

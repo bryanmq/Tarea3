@@ -8,8 +8,9 @@ package vista;
 import modelo.Curso;
 
 /**
+ * TAREA #3 UCR-Programación II-2015
  *
- * @author Bryan
+ * @author Bryan Marín Quesada(B23907)
  */
 public class PanelCurso extends javax.swing.JPanel {
 
@@ -19,41 +20,40 @@ public class PanelCurso extends javax.swing.JPanel {
     public PanelCurso() {
         initComponents();
     }
-    
-    public Curso getCurso(){
+
+    public Curso getCurso() {
         return new Curso(jtNombre.getText(), jtSiglas.getText(), jtCreditos.getText());
     }
-    
-    public boolean getStateOfJTextArea(){
-        if(!jtNombre.getText().equals("") && !jtSiglas.getText().equals("") && !jtCreditos.getText().equals("")){
+
+    public boolean getStateOfJTextArea() {
+        if (!jtNombre.getText().equals("") && !jtSiglas.getText().equals("") && !jtCreditos.getText().equals("")) {
             return true;
         }
         return false;
     }
-    
-    public void clean(){
+
+    public void clean() {
         jtCreditos.setText("");
         jtNombre.setText("");
         jtSiglas.setText("");
-        
+
     }
-    
-    public void setText(String nombre, String siglas, String creditos){
+
+    public void setText(String nombre, String siglas, String creditos) {
         jtNombre.setText(nombre);
         jtSiglas.setText(siglas);
         jtCreditos.setText(creditos);
     }
-    
-    public void setEditable(int index){
-        if(index==1){
+
+    public void setEditable(int index) {
+        if (index == 1) {
             jtSiglas.setEditable(true);
             jtSiglas.setEnabled(true);
-        }
-        else{
+        } else {
             jtSiglas.setEditable(false);
             jtSiglas.setEnabled(false);
         }
-            
+
     }
 
     /**

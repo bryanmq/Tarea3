@@ -1,6 +1,2 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<matriculas><matricula><curso>Algoritmos y Estructuras de Datos</curso><estudiantes>
-- Maria Alvarado Marín
-- Jose Carlos Gómez Alvarado
-- Bryan Marín Quesada
-</estudiantes><fecha>03/05/2015</fecha></matricula></matriculas>
+<matriculas><matricula><curso>Progra II</curso><estudiantes>&lt;html&gt;&lt;br&gt;Maria Alvarado Marín&lt;br&gt;Jose Carlos Gómez Alvarado&lt;br&gt;Bryan Marín Quesada&lt;html&gt;</estudiantes><fecha>04/05/2015</fecha></matricula></matriculas>

@@ -6,8 +6,9 @@
 package vista;
 
 /**
+ * TAREA #3 UCR-Programación II-2015
  *
- * @author Bryan
+ * @author Bryan Marín Quesada(B23907)
  */
 public class GUIMantenimientoRegistro extends Ventana {
 
@@ -17,7 +18,6 @@ public class GUIMantenimientoRegistro extends Ventana {
     public GUIMantenimientoRegistro() {
         initComponents();
         setVisible(true);
-        panelBotonesAccion1.init(this);
     }
 
     /**
@@ -29,33 +29,69 @@ public class GUIMantenimientoRegistro extends Ventana {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panelMantenimientoRegistro1 = new vista.PanelMantenimientoRegistro();
-        panelBotonesAccion1 = new vista.PanelBotonesAccion();
+        jPanel1 = new javax.swing.JPanel();
+        panelListado1 = new vista.PanelListado();
+        jButton1 = new javax.swing.JButton();
+
+        jPanel1.setBackground(new java.awt.Color(0, 153, 153));
+
+        jButton1.setText("Regresar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jButton1)
+                    .addComponent(panelListado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(panelListado1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jButton1)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(panelMantenimientoRegistro1, javax.swing.GroupLayout.PREFERRED_SIZE, 443, javax.swing.GroupLayout.PREFERRED_SIZE)
-            .addComponent(panelBotonesAccion1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(panelMantenimientoRegistro1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelBotonesAccion1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void setInformacion(String datos){
-        panelMantenimientoRegistro1.setDatos(datos);
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    public void setDatosTabla(String datos[][], String etiquetas[]) {
+        panelListado1.setValores(datos, etiquetas);
+    }
+
+    public void setTamaño() {
+        panelListado1.setTamaño();
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private vista.PanelBotonesAccion panelBotonesAccion1;
-    private vista.PanelMantenimientoRegistro panelMantenimientoRegistro1;
+    private javax.swing.JButton jButton1;
+    private javax.swing.JPanel jPanel1;
+    private vista.PanelListado panelListado1;
     // End of variables declaration//GEN-END:variables
 }

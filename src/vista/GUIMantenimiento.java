@@ -1,13 +1,18 @@
-
 package vista;
+
 import controlador.Controlador;
 
-public class GUIMantenimiento extends Ventana{
+/**
+ * TAREA #3 UCR-Programación II-2015
+ *
+ * @author Bryan Marín Quesada(B23907)
+ */
+public class GUIMantenimiento extends Ventana {
 
     public GUIMantenimiento() {
         initComponents();
     }
-    
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -40,39 +45,39 @@ public class GUIMantenimiento extends Ventana{
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    public void setControlador(Controlador manejador){
+    public void setControlador(Controlador manejador) {
         panelBotonesMantenimiento2.setControladorMantenimiento(manejador);
     }
 
-    public void setCamposClave(String[] CamposClave){
+    public void setCamposClave(String[] CamposClave) {
         panelBotonesMantenimiento2.addCamposClave(CamposClave);
     }
 
-    public void setDatosTabla(String datos[][],String etiquetas[]){
+    public void setDatosTabla(String datos[][], String etiquetas[]) {
         panelListado2.setValores(datos, etiquetas);
     }
-    
-    public String[] getFilaSeleccionada(){
+
+    public String[] getFilaSeleccionada() {
         return panelListado2.getdatosFila();
     }
-    
-    public int getStateOfRow(){
-        return panelListado2.getFila();
-    } 
 
-    public String getCampoClave(){
+    public int getStateOfRow() {
+        return panelListado2.getFila();
+    }
+
+    public String getCampoClave() {
         return panelBotonesMantenimiento2.getCampoClave();
     }
 
-    public String getTextoClave(){
+    public String getTextoClave() {
         return panelBotonesMantenimiento2.getTextoClave();
     }
 
-    public void uptDate(){
+    public void uptDate() {
         this.validate();
     }
-   
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private vista.PanelBotonesMantenimiento panelBotonesMantenimiento2;
     private vista.PanelListado panelListado2;

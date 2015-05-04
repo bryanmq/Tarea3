@@ -12,28 +12,33 @@ import org.jdom.JDOMException;
 import org.jdom.input.SAXBuilder;
 import org.jdom.output.XMLOutputter;
 
+/**
+ * TAREA #3 UCR-Programación II-2015
+ *
+ * @author Bryan Marín Quesada(B23907)
+ */
 public class RegistroEstudiantes {
-    
+
     private ArrayList<Estudiante> arrayEstudiante;
     private String rutaDocumento;
     private Element raiz;
     private Document document;
-    
+
     public RegistroEstudiantes() {
-        
+
     }
-    
+
     private RegistroEstudiantes(String rutaDocumento, String nombreRaiz) throws IOException {
         this.rutaDocumento = rutaDocumento;
         this.raiz = new Element(nombreRaiz);
         this.document = new Document(raiz);
         guardarEstudiante();
     }
-    
+
     public static RegistroEstudiantes crearDocumento() throws IOException {
         return new RegistroEstudiantes("./src/modelo/documents/BaseDatosEstudiantes", "estudiantes");
     }
-    
+
     private RegistroEstudiantes(String rutaDocumento) throws JDOMException, IOException {
         SAXBuilder saBuilder = new SAXBuilder();
         saBuilder.setIgnoringElementContentWhitespace(true);
@@ -41,11 +46,11 @@ public class RegistroEstudiantes {
         this.raiz = document.getRootElement();
         this.rutaDocumento = rutaDocumento;
     }
-    
+
     public static RegistroEstudiantes abrirDocumento() throws JDOMException, IOException {
         return new RegistroEstudiantes("./src/modelo/documents/BaseDatosEstudiantes");
     }
-    
+
     public static boolean analizarDirectorio() {
         File listado[];
         File rutaDirectorio = new File("./src/modelo/documents");
@@ -58,37 +63,37 @@ public class RegistroEstudiantes {
         }
         return state;
     }
-    
+
     public void setEstudiante(Estudiante estudiante) throws IOException {
         Element eEstudiante = new Element("estudiante");
         Attribute aIdentificador = new Attribute("identificador", estudiante.getIdentificador());
         Element eNombre = new Element("nombre");
         Element eAñoIngreso = new Element("añoIngreso");
         Element eCedula = new Element("cedula");
-        
+
         eNombre.addContent(String.valueOf(estudiante.getNombre()));
         eAñoIngreso.addContent(String.valueOf(estudiante.getAñoIngreso()));
         eCedula.addContent(String.valueOf(estudiante.getCedula()));
-        
+
         eEstudiante.setAttribute(aIdentificador);
         eEstudiante.addContent(eNombre);
         eEstudiante.addContent(eAñoIngreso);
         eEstudiante.addContent(eCedula);
-        
+
         raiz.addContent(eEstudiante);
         guardarEstudiante();
     }
-    
+
     private void guardarEstudiante() throws IOException {
         XMLOutputter xMLOutputter = new XMLOutputter();
         xMLOutputter.output(document, new PrintWriter(this.rutaDocumento));
     }
-    
+
     public void eliminarEstudiante(Element libro) throws IOException {
         raiz.removeContent(libro);
         guardarEstudiante();
     }
-    
+
     public void modificarEstudiante(Estudiante estudiante) throws IOException {
         Element estudianteEncontrado = (Element) this.buscarEstudiante(estudiante.getIdentificador(), 0);
         estudianteEncontrado.getChild("nombre").setText(estudiante.getNombre());
@@ -96,7 +101,7 @@ public class RegistroEstudiantes {
         estudianteEncontrado.getChild("añoIngreso").setText(Integer.toString(estudiante.getAñoIngreso()));
         guardarEstudiante();
     }
-    
+
     public Object buscarEstudiante(String identificador, int index) {
         if (raiz != null) {
             List<Element> elementosEstudiantes = (List<Element>) raiz.getChildren();
@@ -115,7 +120,7 @@ public class RegistroEstudiantes {
         }
         return null;
     }
-    
+
     public ArrayList<Estudiante> getEstudiantes() {
         if (raiz != null) {
             List<Element> elementosEstudiantes = (List<Element>) raiz.getChildren();
@@ -132,7 +137,7 @@ public class RegistroEstudiantes {
         }
         return null;
     }
-    
+
     public String getListadoEstudiantes() {
         String informacion = "";
         for (Estudiante students : getEstudiantes()) {
@@ -140,7 +145,7 @@ public class RegistroEstudiantes {
         }
         return informacion;
     }
-    
+
     public String[][] getMatrizEstudiantes() {
         getEstudiantes();
         String matriz[][] = new String[arrayEstudiante.size()][Estudiante.getConteoAtributos()];
@@ -151,7 +156,7 @@ public class RegistroEstudiantes {
         }
         return matriz;
     }
-    
+
     public String[] getVectorEstudiantes() {
         getEstudiantes();
         String[] vectorEstudiantes = new String[arrayEstudiante.size()];
@@ -160,11 +165,11 @@ public class RegistroEstudiantes {
         }
         return vectorEstudiantes;
     }
-    
+
     public ArrayList<Estudiante> filtrar(String identificador, String filtro) {
         getEstudiantes();
         ArrayList<Estudiante> listadoFiltro = new ArrayList<Estudiante>();
-        
+
         for (Estudiante listadoEstudiantes : arrayEstudiante) {
             if (identificador.equalsIgnoreCase("Identificador")) {
                 if (listadoEstudiantes.getIdentificador().equalsIgnoreCase(filtro)) {
@@ -187,15 +192,15 @@ public class RegistroEstudiantes {
                 }
             }
         }
-        
+
         if (arrayEstudiante != null) {
             return listadoFiltro;
         } else {
             return null;
         }
-        
+
     }
-    
+
     public String[][] getMatrizEstudiantesFiltrada(String identificador, String filtro) {
         String matriz[][] = new String[filtrar(identificador, filtro).size()][Estudiante.getConteoAtributos()];
         for (int fila = 0; fila < matriz.length; fila++) {
@@ -205,5 +210,5 @@ public class RegistroEstudiantes {
         }
         return matriz;
     }
-    
+
 }

@@ -9,6 +9,9 @@ import java.awt.event.ActionEvent;
 import java.io.IOException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import modelo.Curso;
+import modelo.Estudiante;
+import modelo.Matricula;
 import modelo.RegistroCursos;
 import modelo.RegistroEstudiantes;
 import modelo.RegistroMatricula;
@@ -20,8 +23,9 @@ import vista.GUIMatricula;
 import vista.Menu;
 
 /**
+ * TAREA #3 UCR-Programación II-2015
  *
- * @author Bryan Marin Quesada
+ * @author Bryan Marín Quesada(B23907)
  */
 public class ManejadorMenu extends Controlador {
 
@@ -44,21 +48,21 @@ public class ManejadorMenu extends Controlador {
             } else {
                 registroEstudiantes = RegistroEstudiantes.abrirDocumento();
             }
-            
-            if(RegistroCursos.analizarDirectorio() == false){
+
+            if (RegistroCursos.analizarDirectorio() == false) {
                 RegistroCursos.crearDocumento();
                 registroCursos = RegistroCursos.abrirDocumento();
-            }else{
+            } else {
                 registroCursos = RegistroCursos.abrirDocumento();
             }
-            
-            if(RegistroMatricula.analizarDirectorio() == false){
+
+            if (RegistroMatricula.analizarDirectorio() == false) {
                 RegistroMatricula.crearDocumento();
                 registroMatricula = RegistroMatricula.abrirDocumento();
-            }else{
+            } else {
                 registroMatricula = RegistroMatricula.abrirDocumento();
             }
-            
+
         } catch (IOException | JDOMException ex) {
             Logger.getLogger(ManejadorMenu.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -87,17 +91,21 @@ public class ManejadorMenu extends Controlador {
 
         if (event.getActionCommand().equals("Registro Estudiantes")) {
             GUIMantenimientoRegistro gUIMantenimientoRegistro = new GUIMantenimientoRegistro();
-            gUIMantenimientoRegistro.setInformacion(registroEstudiantes.getListadoEstudiantes());
+            gUIMantenimientoRegistro.setTitle("Registro Estudiantes");
+            gUIMantenimientoRegistro.setDatosTabla(registroEstudiantes.getMatrizEstudiantes(), Estudiante.getEtiquetasAtributos());
         }
 
         if (event.getActionCommand().equals("Registro Cursos")) {
             GUIMantenimientoRegistro gUIMantenimientoRegistro = new GUIMantenimientoRegistro();
-            gUIMantenimientoRegistro.setInformacion(registroCursos.getListadoCursos());
+            gUIMantenimientoRegistro.setTitle("Registro Cursos");
+            gUIMantenimientoRegistro.setDatosTabla(registroCursos.getMatrizCursos(), Curso.getEtiquetaAtributos());
         }
 
         if (event.getActionCommand().equals("Registro Matrícula")) {
             GUIMantenimientoRegistro gUIMantenimientoRegistro = new GUIMantenimientoRegistro();
-            gUIMantenimientoRegistro.setInformacion(registroMatricula.getInformacionMatricula());
+            gUIMantenimientoRegistro.setTamaño();
+            gUIMantenimientoRegistro.setTitle("Registro Matrícula");
+            gUIMantenimientoRegistro.setDatosTabla(registroMatricula.getMatrizMatrícula(), Matricula.getEtiquetasAtributos());
         }
     }//fin metodo actionPerformed
 

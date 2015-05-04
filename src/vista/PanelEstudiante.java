@@ -7,8 +7,9 @@ package vista;
 import modelo.Estudiante;
 
 /**
+ * TAREA #3 UCR-Programación II-2015
  *
- * @author ronald
+ * @author Bryan Marín Quesada(B23907)
  */
 public class PanelEstudiante extends javax.swing.JPanel {
 
@@ -18,38 +19,38 @@ public class PanelEstudiante extends javax.swing.JPanel {
     public PanelEstudiante() {
         initComponents();
     }
-    
+
     public void setEstudiante(Estudiante estudiante) {
         jtIdentificador.setText(estudiante.getIdentificador());
         jtNombre.setText(estudiante.getNombre());
         jtCedula.setText(estudiante.getCedula());
         jtAnoIngreso.setText(Integer.toString(estudiante.getAñoIngreso()));
     }
-    
+
     public Estudiante getEstudiante() {
         return new Estudiante(jtNombre.getText(), Integer.parseInt(jtAnoIngreso.getText()), jtIdentificador.getText(), jtCedula.getText());
     }
-    
+
     public boolean getStateOfJTextArea() {
         return !jtAnoIngreso.getText().equals("") && !jtCedula.getText().equals("") && !jtIdentificador.getText().equals("") && !jtNombre.getText().equals("");
     }
-    
+
     public void clean() {
         jtAnoIngreso.setText("");
         jtCedula.setText("");
         jtIdentificador.setText("");
         jtNombre.setText("");
     }
-    
+
     public void setText(String nombre, int añoIngreso, String identificador, String cedula) {
         jtAnoIngreso.setText(Integer.toString(añoIngreso));
         jtCedula.setText(cedula);
         jtIdentificador.setText(identificador);
         jtNombre.setText(nombre);
     }
-    
+
     public void setEditable(boolean action) {
-        if (action==true) {
+        if (action == true) {
             jtIdentificador.setEditable(true);
             jtIdentificador.setEnabled(true);
         } else {

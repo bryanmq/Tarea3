@@ -11,17 +11,18 @@ import modelo.RegistroCursos;
 import modelo.RegistroMatricula;
 
 /**
+ * TAREA #3 UCR-Programación II-2015
  *
- * @author ronald
+ * @author Bryan Marín Quesada(B23907)
  */
-public class Menu extends JFrame{
+public class Menu extends JFrame {
 
-    public static final String ITEM_ESTUDIANTE="Estudiante", ITEM_CURSO="Curso", ITEM_MATRICULA="Matrícula";
+    public static final String ITEM_ESTUDIANTE = "Estudiante", ITEM_CURSO = "Curso", ITEM_MATRICULA = "Matrícula";
     private final RegistroEstudiantes registroEstudiantes;
     private final RegistroCursos registroCursos;
     private final ManejadorMenu manejadorMenu;
     private final RegistroMatricula registroMatricula;
-    
+
     public Menu() {
         initComponents();
         registroEstudiantes = new RegistroEstudiantes();
@@ -32,8 +33,8 @@ public class Menu extends JFrame{
         setManejador();
         setLocationRelativeTo(this);
     }
-    
-    public void setManejador(){
+
+    public void setManejador() {
         jmiEstudiante.addActionListener(manejadorMenu);
         jmiCurso.addActionListener(manejadorMenu);
         jmiMatricula.addActionListener(manejadorMenu);
@@ -41,8 +42,8 @@ public class Menu extends JFrame{
         jmiRC.addActionListener(manejadorMenu);
         jmiM.addActionListener(manejadorMenu);
     }
-    
-    public void setActionCommand(){
+
+    public void setActionCommand() {
         jmiCurso.setActionCommand(ITEM_CURSO);
         jmiEstudiante.setActionCommand(ITEM_ESTUDIANTE);
         jmiMatricula.setActionCommand(ITEM_MATRICULA);

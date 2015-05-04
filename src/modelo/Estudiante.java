@@ -5,8 +5,9 @@
 package modelo;
 
 /**
+ * TAREA #3 UCR-Programación II-2015
  *
- * @author ronald
+ * @author Bryan Marín Quesada(B23907)
  */
 public class Estudiante {
 
@@ -76,13 +77,13 @@ public class Estudiante {
                 return null;
         }
     }
-    
-    public static int getConteoAtributos(){
-      return  atributos.length;
+
+    public static int getConteoAtributos() {
+        return atributos.length;
     }
-    
-    public String getInformacion(){
-        return "\nIdentificador:"+ getIdentificador()+ "\nNombre:" + getNombre() + "\nAño Ingreso:"+getAñoIngreso()+ "\nCédula:"+getCedula();
+
+    public String getInformacion() {
+        return "\nIdentificador:" + getIdentificador() + "\nNombre:" + getNombre() + "\nAño Ingreso:" + getAñoIngreso() + "\nCédula:" + getCedula();
     }
-    
+
 }

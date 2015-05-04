@@ -17,8 +17,9 @@ import vista.GUIMatricula;
 import vista.PanelBotonesAccion;
 
 /**
+ * TAREA #3 UCR-Programación II-2015
  *
- * @author Bryan Marín Quesada
+ * @author Bryan Marín Quesada(B23907)
  */
 public class ManejadorMatricula extends Controlador {
 

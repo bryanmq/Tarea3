@@ -9,28 +9,28 @@ import modelo.Estudiante;
 import modelo.RegistroEstudiantes;
 
 /**
+ * TAREA #3 UCR-Programación II-2015
  *
- * @author ronald
+ * @author Bryan Marín Quesada(B23907)
  */
 public class GUIAdminEstudiante extends GUIMantenimiento {
 
     private RegistroEstudiantes registro;
     private GUIMantenimiento gUIMantenimiento;
-    
-    public void setRegistroEstudiantes(RegistroEstudiantes registro){
-         this.registro=registro;  
-         gUIMantenimiento = new GUIMantenimiento();
+
+    public void setRegistroEstudiantes(RegistroEstudiantes registro) {
+        this.registro = registro;
+        gUIMantenimiento = new GUIMantenimiento();
     }
-    
-    public void init(){
+
+    public void init() {
         setDatosTabla(registro.getMatrizEstudiantes(), Estudiante.getEtiquetasAtributos());
         setCamposClave(Estudiante.getEtiquetasAtributos());
-        ManejadorEstudiante manejadorEstudiante=new ManejadorEstudiante(registro,this, gUIMantenimiento);
-        setControlador(manejadorEstudiante); 
+        ManejadorEstudiante manejadorEstudiante = new ManejadorEstudiante(registro, this, gUIMantenimiento);
+        setControlador(manejadorEstudiante);
         setTitle("Mantenimiento de \"Estudiantes\"");
     }
-  
-   
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

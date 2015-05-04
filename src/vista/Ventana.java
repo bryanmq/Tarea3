@@ -7,8 +7,9 @@ package vista;
 import javax.swing.JOptionPane;
 
 /**
+ * TAREA #3 UCR-Programación II-2015
  *
- * @author ronald
+ * @author Bryan Marín Quesada(B23907)
  */
 public class Ventana extends javax.swing.JFrame {
 

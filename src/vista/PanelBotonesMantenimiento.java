@@ -2,6 +2,11 @@ package vista;
 
 import controlador.Controlador;
 
+/**
+ * TAREA #3 UCR-Programación II-2015
+ *
+ * @author Bryan Marín Quesada(B23907)
+ */
 public class PanelBotonesMantenimiento extends javax.swing.JPanel {
 
     public static String BOTON_TYPE_AGREGAR = "Agregar";
@@ -72,11 +77,6 @@ public class PanelBotonesMantenimiento extends javax.swing.JPanel {
         jbSalir.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jbSalir.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jbSalir.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        jbSalir.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jbSalirActionPerformed(evt);
-            }
-        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -125,10 +125,6 @@ public class PanelBotonesMantenimiento extends javax.swing.JPanel {
                 .addContainerGap())
         );
     }// </editor-fold>//GEN-END:initComponents
-
-    private void jbSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jbSalirActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jbSalirActionPerformed
 
     /**
      * Este método permite agregar los campos clave por los cuales puede filtrar
